@@ -1,0 +1,21 @@
+create database WMS
+go
+use WMS
+
+go
+
+create table address(
+	id int primary key identity,
+	city_name varchar(100) not null,
+	street_name varchar(100) not null,
+	latitude float not null,
+	longitude float not null
+)
+
+create table account(
+	id int primary key identity,
+	account_name varchar(100) not null,
+	email varchar(100) not null,
+	address_id int,
+	foreign key (address_id) references address(id)
+)
