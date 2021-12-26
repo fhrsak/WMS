@@ -1,6 +1,8 @@
 package hr.hrsak.wms.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "account")
@@ -20,6 +22,15 @@ public class Account {
     @JoinColumn(name = "address_id")
     private Address address;
 
+    @OneToMany(mappedBy = "account")
+    private List<Orders> orders;
+
+    public void addOrder(Orders order){
+        if(orders==null){
+            orders= new ArrayList<>();
+        }
+        orders.add(order);
+    }
     public Account() {
 
     }

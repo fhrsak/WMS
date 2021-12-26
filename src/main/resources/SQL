@@ -19,3 +19,22 @@ create table account(
 	address_id int,
 	foreign key (address_id) references address(id)
 )
+
+/* Testing purposes
+
+insert into address values ('Zagreb', 'Cajkovceva', '45.81547689543955', '15.891742505255827')
+insert into account values ('Filip d.o.o.', 'hrsak.filip@gmail.com', 1)
+
+select * from address
+*/
+
+create table orders(
+	id int primary key identity,
+	order_number int not null,
+	order_date date,
+	status varchar(20),
+	comment varchar(255),
+	account_id int,
+	foreign key (account_id) references account(id)
+)
+

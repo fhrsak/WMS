@@ -25,6 +25,7 @@ public class Address {
     @OneToOne(mappedBy = "address")
     private Account account;
 
+
     public Address(int id, String cityName, String streetName, double lattitude, double longitude) {
         this.id = id;
         this.cityName = cityName;
